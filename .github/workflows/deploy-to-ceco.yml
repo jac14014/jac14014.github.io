@@ -26,7 +26,7 @@ jobs:
         with:
           node-version: "20"
 
-            - name: Install Tailwind (project deps)
+      - name: Install Tailwind (project deps)
         run: |
           if [ -f package-lock.json ]; then
             npm ci
