@@ -2,9 +2,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/* Your custom styles below */
 
 /* any custom @layer rules must come after @tailwind base */
 @layer base {
   /* your theme/site base styles (if any) */
+  /* e.g.
+  html { font-size: 16px; }
+  body { background: var(--bg); }
+  */
 }
