@@ -1,0 +1,40 @@
+name: Build HugoBlox and deploy to c-eco/docs
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+          fetch-depth: 0
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: "latest"
+          extended: true
+
+      - name: Build site
+        run: hugo --minify
+
+      - name: Add CNAME and .nojekyll
+        run: |
+          echo "c-eco.org" > public/CNAME
+          touch public/.nojekyll
+
+      - name: Deploy to c-eco/docs
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          personal_token: ${{ secrets.PUBLISH_TOKEN }}
+          external_repository: jac14014/c-eco
+          publish_branch: main
+          publish_dir: ./public
+          destination_dir: docs
+          keep_files: false
