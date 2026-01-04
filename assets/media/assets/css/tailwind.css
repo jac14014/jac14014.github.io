@@ -1,0 +1,9 @@
+/* assets/css/tailwind.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* any custom @layer rules must come after @tailwind base */
+@layer base {
+  /* your theme/site base styles (if any) */
+}
