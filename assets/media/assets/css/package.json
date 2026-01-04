@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "build:css": "tailwindcss -i ./assets/css/tailwind.css -o ./assets/css/main.css --minify",
+    "build": "pnpm run build:css && hugo --minify && pnpm run pagefind"
+  }
+}
