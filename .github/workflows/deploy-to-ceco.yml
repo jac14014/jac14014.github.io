@@ -33,6 +33,8 @@ jobs:
           npx tailwindcss --help
 
       - name: Build site
+        env:
+          NODE_PATH: ./node_modules
         run: hugo --minify
 
       - name: Add CNAME and .nojekyll
