@@ -2,6 +2,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* Your custom styles below */
 
 /* any custom @layer rules must come after @tailwind base */
 @layer base {
