@@ -26,10 +26,11 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Install Tailwind CSS CLI
+      - name: Install Tailwind CSS CLI (local)
         run: |
-          npm --version
-          npx --yes tailwindcss --help
+          npm init -y
+          npm i -D tailwindcss@3.4.17 postcss autoprefixer
+          npx tailwindcss --help
 
       - name: Build site
         run: hugo --minify
