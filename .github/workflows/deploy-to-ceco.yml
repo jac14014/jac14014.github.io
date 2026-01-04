@@ -35,9 +35,11 @@ jobs:
           fi
           npm install -D tailwindcss@3.4.17 postcss autoprefixer
           node -p "require('tailwindcss/package.json').version"
+          
           @tailwind base;
           @tailwind components;
           @tailwind utilities;
+          
       - name: Build site
         env:
           NODE_PATH: ./node_modules
@@ -53,6 +55,7 @@ jobs:
         with:
           personal_token: ${{ secrets.PUBLISH_TOKEN }}
           external_repository: jac14014/c-eco
+
           publish_branch: main
           publish_dir: ./public
           destination_dir: docs
