@@ -1,5 +1,4 @@
-name: _deploy.yml
-
+name: deploy.yml.disabled
 env:
   NODE_VERSION: '20'
 
