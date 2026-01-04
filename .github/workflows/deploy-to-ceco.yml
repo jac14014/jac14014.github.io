@@ -26,11 +26,15 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Install Tailwind CSS CLI (local)
+            - name: Install Tailwind (project deps)
         run: |
-          npm init -y
-          npm i -D tailwindcss@3.4.17 postcss autoprefixer
-          npx tailwindcss --help
+          if [ -f package-lock.json ]; then
+            npm ci
+          else
+            npm install
+          fi
+          npm install -D tailwindcss@3.4.17 postcss autoprefixer
+          node -p "require('tailwindcss/package.json').version"
 
       - name: Build site
         env:
